@@ -1,0 +1,371 @@
+ /* Estilos do carrossel */
+      .swiper-slide {
+        position: relative;
+      }
+      
+      .swiper-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      
+      .jumbotron-classic-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      /* Estilos dos formulários de autenticação */
+      .auth-wrapper {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .auth-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+      }
+      
+      .auth-image {
+        flex: 1;
+        background-image: url('/api/placeholder/500/800');
+        background-size: cover;
+        background-position: center;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      
+      .auth-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      .auth-image-content {
+        position: relative;
+        color: white;
+        text-align: center;
+        padding: 30px;
+      }
+      
+      .auth-image-content h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      
+      .auth-image-content p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+      
+      .auth-forms {
+        flex: 1;
+        padding: 40px;
+      }
+      
+      .auth-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      .auth-header h3 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      
+      .auth-header p {
+        color: #777;
+        margin-top: 10px;
+      }
+      
+      .form-group {
+        margin-bottom: 25px;
+      }
+      
+      .form-group label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+      }
+      
+      .form-control {
+        height: 50px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+        font-size: 16px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+      
+      .form-control:focus {
+        border-color: #333;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn-auth {
+        width: 100%;
+        height: 50px;
+        background-color: #333;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+      
+      .btn-auth:hover {
+        background-color: #555;
+      }
+      
+      .auth-footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #777;
+      }
+      
+      .auth-footer a {
+        color: #333;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      
+      .auth-footer a:hover {
+        text-decoration: underline;
+      }
+      
+      .or-divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 25px 0;
+        color: #777;
+      }
+      
+      .or-divider::before,
+      .or-divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .or-divider::before {
+        margin-right: 10px;
+      }
+      
+      .or-divider::after {
+        margin-left: 10px;
+      }
+      
+      .social-login {
+        margin-top: 20px;
+      }
+      
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 45px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      
+      .social-btn i {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+      
+      .btn-facebook {
+        background-color: #3b5998;
+        color: white;
+      }
+      
+      .btn-facebook:hover {
+        background-color: #2d4373;
+        color: white;
+      }
+      
+      .btn-google {
+        background-color: white;
+        color: #333;
+        border: 1px solid #ddd;
+      }
+      
+      .btn-google:hover {
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      
+      .forgot-password {
+        display: block;
+        text-align: right;
+        margin-top: -15px;
+        margin-bottom: 25px;
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+      
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      .checkbox-container input {
+        margin-right: 10px;
+      }
+      
+      /* Estilos para o modal de alerta */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .modal-container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 500px;
+        padding: 30px;
+        text-align: center;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+      }
+      
+      .modal-overlay.active .modal-container {
+        transform: translateY(0);
+      }
+      
+      .modal-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      
+      .modal-content {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 25px;
+      }
+      
+      .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .modal-btn {
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-btn-primary {
+        background-color: #333;
+        color: white;
+        border: none;
+      }
+      
+      .modal-btn-primary:hover {
+        background-color: #555;
+      }
+      
+      .modal-btn-secondary {
+        background-color: #f1f1f1;
+        color: #333;
+        border: none;
+      }
+      
+      .modal-btn-secondary:hover {
+        background-color: #ddd;
+      }
+      
+      /* Estilo para mensagens de erro */
+      .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+      
+      .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+      }
+      
+      .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 991px) {
+        .auth-image {
+          display: none;
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .auth-forms {
+          padding: 30px 20px;
+        }
+        
+        .auth-header h3 {
+          font-size: 22px;
+        }
+      }
