@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="pt-BR">
+  <head>
+    <title>Pagamento - Loja Online</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/dion definitivo branco.png" type="image/dion definitivo branco.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800%7CPoppins:300,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css" id="main-styles-link">
+    <style>
+      .user-profile-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        cursor: pointer;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ff6b00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .user-avatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 280px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        display: none;
+        z-index: 1001;
+      }
+
+      .user-dropdown.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .user-info {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+      }
+
+      .user-name {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .user-email {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .user-location {
+        color: #888;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+      }
+
+      .user-location .icon {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      .menu-options {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu-options li {
+        margin-bottom: 8px;
+      }
+
+      .menu-options li:last-child {
+        margin-bottom: 0;
+      }
+
+      .menu-options a {
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .menu-options a:hover {
+        background-color: #f5f5f5;
+      }
+
+      .menu-options .icon {
+        margin-right: 10px;
+        font-size: 18px;
+        width: 24px;
+        text-align: center;
+      }
+
+      .logout-btn {
+        display: block;
+        width: 100%;
+        background-color: #ff6b00;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s ease;
+      }
+
+      .logout-btn:hover {
+        background-color: #e35f00;
+      }
+
+      .not-logged .user-profile-icon {
+        display: none;
+      }
+
+      .checkout-page {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+      }
+
+      .checkout-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .section-header {
+        background-color: #ff6b00;
+        color: white;
+        padding: 15px 20px;
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-header .icon {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+
+      .section-content {
+        padding: 25px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #ff6b00;
+        box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      .order-summary {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 30px;
+      }
+
+      .order-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .order-item:last-child {
+        border-bottom: none;
+      }
+
+      .order-item-img {
+        width: 60px;
+        height: 60px;
+        background-color: #f8f8f8;
+        border-radius: 4px;
+        margin-right: 15px;
+        overflow: hidden;
+      }
+
+      .order-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .order-item-details {
+        flex: 1;
+      }
+
+      .order-item-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .order-item-variant {
+        color: #666;
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+
+      .order-item-price {
+        font-weight: 600;
+        color: #ff6b00;
+      }
+
+      .order-total-section {
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      .order-total-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .order-total-item:last-child {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .coupon-section {
+        padding: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .coupon-input {
+        display: flex;
+        gap: 10px;
+      }
+
+      .coupon-input input {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .coupon-btn {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .coupon-btn:hover {
+        background-color: #218838;
+      }
+
+      .shipping-options {
+        margin-top: 15px;
+      }
+
+      .shipping-option {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .shipping-option:hover {
+        background-color: #f8f9fa;
+      }
+
+      .shipping-option input {
+        margin-right: 12px;
+      }
+
+      .shipping-option.selected {
+        border-color: #ff6b00;
+        background-color: rgba(255, 107, 0, 0.05);
+      }
+
+      .shipping-details {
+        flex: 1;
+      }
+
+      .shipping-name {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .shipping-time {
+        color: #666;
+        font-size: 13px;
+      }
+
+      .shipping-price {
+        font-weight: 600;
+        color: #ff6b00;
+      }
+
+      .payment-methods {
+        margin-top: 20px;
+      }
+
+      .payment-method {
+        margin-bottom: 15px;
+      }
+
+      .payment-header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .payment-header:hover {
+        background-color: #e9ecef;
+      }
+
+      .payment-header input {
+        margin-right: 12px;
+      }
+
+      .payment-header.selected {
+        border-color: #ff6b00;
+        background-color: rgba(255, 107, 0, 0.05);
+      }
+
+      .whatsapp-finish {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-finish:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+
+      .whatsapp-icon {
+        font-size: 20px;
+      }
+
+      .progress-steps {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        color: #999;
+      }
+
+      .step.active {
+        color: #ff6b00;
+      }
+
+      .step.completed {
+        color: #28a745;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        font-weight: 600;
+      }
+
+      .step.active .step-number {
+        background-color: #ff6b00;
+        color: white;
+      }
+
+      .step.completed .step-number {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .step-divider {
+        width: 50px;
+        height: 2px;
+        background-color: #eee;
+        margin: 0 20px;
+      }
+
+      .step.completed + .step-divider {
+        background-color: #28a745;
+      }
+
+      .security-badges {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+        margin-top: 20px;
+      }
+
+      .security-badge {
+        display: flex;
+        align-items: center;
+        color: #666;
+        font-size: 12px;
+      }
+
+      .security-badge .icon {
+        margin-right: 5px;
+        color: #28a745;
+      }
+
+      @media (max-width: 991px) {
+        .order-summary {
+          position: static;
+          margin-top: 30px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+        
+        .progress-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .step-divider {
+          width: 2px;
+          height: 30px;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="user-profile-icon" id="userProfileIcon">
+      <div class="user-avatar">
+        <span id="userInitials">U</span>
+      </div>
+
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-info">
+          <div class="user-name" id="userName">Nome do Usuário</div>
+          <div class="user-email" id="userEmail">email@exemplo.com</div>
+          <div class="user-location">
+            <span class="icon novi-icon mdi mdi-map-marker"></span>
+            <span id="userLocation">Sarutaia, SP</span>
+          </div>
+        </div>
+
+        <ul class="menu-options">
+          <li>
+            <a href="index.html">
+              <span class="icon novi-icon mdi mdi-home"></span>
+              Menu Principal
+            </a>
+          </li>
+          <li>
+            <a href="produtos.html">
+              <span class="icon novi-icon mdi mdi-shopping"></span>
+              Produtos
+            </a>
+          </li>
+          <li>
+            <a href="meus-dados.html" id="myDataLink">
+              <span class="icon novi-icon mdi mdi-account"></span>
+              Meus Dados
+            </a>
+          </li>
+          <li>
+            <a href="pedidos.html">
+              <span class="icon novi-icon mdi mdi-package-variant"></span>
+              Meus Pedidos
+            </a>
+          </li>
+          <li>
+            <a href="favoritos.html">
+              <span class="icon novi-icon mdi mdi-heart"></span>
+              Favoritos
+            </a>
+          </li>
+        </ul>
+
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </div>
+
+    <div class="preloader">
+      <div class="preloader-logo">
+        <img src="images/dion definitivo branco.png" alt="" width="151" height="44" srcset="images/dion definitivo branco.png 2x"/>
+      </div>
+      <div class="preloader-body">
+        <div id="loadingProgressG">
+          <div class="loadingProgressG" id="loadingProgressG_1"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <header class="section novi-background page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-lg-stick-up="true" data-lg-stick-up-offset="118px" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xl-stick-up="true" data-xl-stick-up-offset="118px" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-xxl-stick-up-offset="118px" data-xxl-stick-up="true">
+            <div class="rd-navbar-aside-outer">
+              <div class="rd-navbar-aside">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <a class="rd-navbar-brand" href="index.html">
+                    <img src="images/dion definitivo branco.png" alt="" width="151" height="44" srcset="images/dion definitivo branco.png 2x"/>
+                  </a>
+                </div>
+                <div class="rd-navbar-collapse">
+                  <button class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle="#rd-navbar-collapse-content-1"><span></span></button>
+                  <div class="rd-navbar-collapse-content" id="rd-navbar-collapse-content-1">
+                    <article class="unit align-items-center">
+                      <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-phone"></span></div>
+                      <div class="unit-body">
+                        <ul class="list-0">
+                          <li><a class="link-default" href="tel:#">(14) 998364178</a></li>                       
+                        </ul>
+                      </div>
+                    </article>
+                    <article class="unit align-items-center">
+                      <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-map-marker"></span></div>
+                      <div class="unit-body"><a class="link-default" href="tel:#">Rua Miguel Galleigo Pedroelo <br> Sarutaia, SP 18840-302</a></div>
+                    </article>
+                    <a class="button button-gray-bordered button-winona" href="#">Ligue para nós</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <div class="rd-navbar-nav-wrap" id="rd-navbar-nav-wrap-1">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Menu</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Sobre nós</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contato</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- Breadcrumbs -->
+      <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark">
+          <div class="container">
+            <h2 class="breadcrumbs-custom-title">Finalizar Compra</h2>
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="carrinho.html">Carrinho</a></li>
+              <li class="active">Pagamento</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Checkout Section -->
+      <section class="section novi-background checkout-page">
+        <div class="container">
+          <!-- Progress Steps -->
+          <div class="progress-steps">
+            <div class="step completed">
+              <div class="step-number">1</div>
+              <span>Carrinho</span>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step active">
+              <div class="step-number">2</div>
+              <span>Dados</span>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <span>Finalização</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8">
+              <!-- Dados Pessoais -->
+              <div class="checkout-section">
+                <div class="section-header">
+                  <span class="icon mdi mdi-account"></span>
+                  Dados Pessoais
+                </div>
+                <div class="section-content">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="nome">Nome Completo *</label>
+                      <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">E-mail *</label>
+                      <input type="email" class="form-control" id="email" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="telefone">Telefone *</label>
+                      <input type="tel" class="form-control" id="telefone" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="cpf">CPF *</label>
+                      <input type="text" class="form-control" id="cpf" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Endereço de Entrega -->
+              <div class="checkout-section">
+                <div class="section-header">
+                  <span class="icon mdi mdi-map-marker"></span>
+                  Endereço de Entrega
+                </div>
+                <div class="section-content">
+                  <div class="form-row">
+                    <div class="form-group" style="flex: 0 0 200px;">
+                      <label for="cep">CEP *</label>
+                      <input type="text" class="form-control" id="cep" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="endereco">Endereço *</label>
+                      <input type="text" class="form-control" id="endereco" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group" style="flex: 0 0 150px;">
+                      <label for="numero">Número *</label>
+                      <input type="text" class="form-control" id="numero" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="complemento">Complemento</label>
+                      <input type="text" class="form-control" id="complemento">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="bairro">Bairro *</label>
+                      <input type="text" class="form-control" id="bairro" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="cidade">Cidade *</label>
+                      <input type="text" class="form-control" id="cidade" required>
+                    </div>
+                    <div class="form-group" style="flex: 0 0 120px;">
+                      <label for="estado">Estado *</label>
+                      <select class="form-control" id="estado" required>
+                        <option value="">Selecione</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                        <option value="RS">RS</option>
+                        <!-- Adicione outros estados conforme necessário -->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Frete -->
+              <div class="checkout-section">
+                <div class="section-header">
+                  <span class="icon mdi mdi-truck"></span>
+                  Opções de Entrega
+                </div>
+                <div class="section-content">
+                  <div class="shipping-options">
+                    <div class="shipping-option" data-shipping="padrao" data-price="19.90">
+                      <input type="radio" name="shipping" id="shipping-1" value="padrao" checked>
+                      <div class="shipping-details">
+                        <div class="shipping-name">Entrega Padrão</div>
+                        <div class="shipping-time">3-5 dias úteis</div>
+                      </div>
+                      <div class="shipping-price">R$ 19,90</div>
+                    </div>
+                    
+                    <div class="shipping-option" data-shipping="expressa" data-price="34.90">
+                      <input type="radio" name="shipping" id="shipping-2" value="expressa">
+                      <div class="shipping-details">
+                        <div class="shipping-name">Entrega Expressa</div>
+                        <div class="shipping-time">1-2 dias úteis</div>
+                      </div>
+                      <div class="shipping-price">R$ 34,90</div>
+                    </div>
+                    
+                    <div class="shipping-option" data-shipping="retirada" data-price="0.00">
+                      <input type="radio" name="shipping" id="shipping-3" value="retirada">
+                      <div class="shipping-details">
+                        <div class="shipping-name">Retirada na Loja</div>
+                        <div class="shipping-time">Disponível hoje</div>
+                      </div>
+                      <div class="shipping-price">Grátis</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Forma de Pagamento -->
+              <div class="checkout-section">
+                <div class="section-header">
+                  <span class="icon mdi mdi-credit-card"></span>
+                  Forma de Pagamento
+                </div>
+                <div class="section-content">
+                  <div class="payment-methods">
+                    <div class="payment-method">
+                      <div class="payment-header" data-payment="pix">
+                        <input type="radio" name="payment" id="payment-pix" value="pix" checked>
+                        <span class="icon mdi mdi-qrcode-scan" style="margin-right: 10px;"></span>
+                        PIX - Desconto de 5%
+                      </div>
+                    </div>
+                    
+                    <div class="payment-method">
+                      <div class="payment-header" data-payment="cartao">
+                        <input type="radio" name="payment" id="payment-cartao" value="cartao">
+                        <span class="icon mdi mdi-credit-card" style="margin-right: 10px;"></span>
+                        Cartão de Crédito - Até 12x
+                      </div>
+                    </div>
+                    
+                    <div class="payment-method">
+                      <div class="payment-header" data-payment="boleto">
+                        <input type="radio" name="payment" id="payment-boleto" value="boleto">
+                        <span class="icon mdi mdi-barcode" style="margin-right: 10px;"></span>
+                        Boleto Bancário - À vista
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4">
+              <!-- Resumo do Pedido -->
+              <div class="order-summary">
+                <div class="section-header">
+                  <span class="icon mdi mdi-cart"></span>
+                  Resumo do Pedido
+                </div>
+                <div class="order-item-variant">Tamanho: M | Cor: Azul</div>
+                    <div class="order-item-price">R$ 89,90</div>
+                  </div>
+                </div>
+                
+                <div class="order-item">
+                  <div class="order-item-img">
+                    <img src="/api/placeholder/400/300" alt="Calça Jeans Slim">
+                  </div>
+                  <div class="order-item-details">
+                    <div class="order-item-title">Calça Jeans Slim Fit</div>
+                    <div class="order-item-variant">Tamanho: 42 | Cor: Azul Escuro</div>
+                    <div class="order-item-price">R$ 129,90</div>
+                  </div>
+                </div>
+
+                <!-- Cupom de Desconto -->
+                <div class="coupon-section">
+                  <h6 style="margin-bottom: 15px;">Cupom de Desconto</h6>
+                  <div class="coupon-input">
+                    <input type="text" placeholder="Digite seu cupom" id="couponCode">
+                    <button class="coupon-btn" onclick="applyCoupon()">Aplicar</button>
+                  </div>
+                </div>
+
+                <!-- Total do Pedido -->
+                <div class="order-total-section">
+                  <div class="order-total-item">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 219,80</span>
+                  </div>
+                  <div class="order-total-item">
+                    <span>Frete:</span>
+                    <span id="shippingCost">R$ 19,90</span>
+                  </div>
+                  <div class="order-total-item" id="discountRow" style="display: none;">
+                    <span>Desconto PIX (5%):</span>
+                    <span id="discount" style="color: #28a745;">-R$ 10,99</span>
+                  </div>
+                  <div class="order-total-item">
+                    <span>Total:</span>
+                    <span id="totalPrice">R$ 239,70</span>
+                  </div>
+                </div>
+
+                <!-- Badges de Segurança -->
+                <div class="security-badges">
+                  <div class="security-badge">
+                    <span class="icon mdi mdi-shield-check"></span>
+                    Compra Segura
+                  </div>
+                  <div class="security-badge">
+                    <span class="icon mdi mdi-lock"></span>
+                    SSL Criptografado
+                  </div>
+                  <div class="security-badge">
+                    <span class="icon mdi mdi-truck"></span>
+                    Entrega Garantida
+                  </div>
+                </div>
+
+                <!-- Botão Finalizar via WhatsApp -->
+                <button class="whatsapp-finish" onclick="finishOrder()">
+                  <span class="whatsapp-icon mdi mdi-whatsapp"></span>
+                  Finalizar Pedido via WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="section novi-background footer-corporate">
+        <div class="footer-corporate-inset">
+          <div class="container">
+            <div class="row row-40 justify-content-lg-between">
+              <div class="col-sm-6 col-md-12 col-lg-3 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInRight" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Contato</h6>
+                    <ul class="footer-contacts d-inline-block d-sm-block">
+                      <li>
+                        <div class="unit">
+                          <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                          <div class="unit-body"><a class="link-phone" href="tel:#">(14) 998364178</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit">
+                          <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                          <div class="unit-body"><a class="link-location" href="#">Rua Miguel Galleigo Pedroelo <br> Sarutaia, SP 18840-302</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5 col-lg-3 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInDown" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Links Rápidos</h6>
+                    <ul class="footer-list footer-list-2">
+                      <li><a href="about-us.html">Sobre Nós</a></li>
+                      <li><a href="produtos.html">Produtos</a></li>
+                      <li><a href="contacts.html">Contato</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-11 col-md-7 col-lg-5 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInLeft" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Newsletter</h6>
+                    <p>Receba novidades e ofertas especiais</p>
+                    <form class="rd-form rd-mailform rd-form-inline rd-form-inline-sm oh-desktop">
+                      <div class="form-wrap wow slideInUp" data-wow-delay=".3s">
+                        <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required">
+                        <label class="form-label" for="subscribe-form-2-email">E-mail</label>
+                      </div>
+                      <div class="form-button form-button-2 wow slideInRight" data-wow-delay=".6s">
+                        <button class="button button-sm button-icon-3 button-winona" type="submit"><span class="d-none d-xl-inline-block">Inscrever</span><span class="icon mdi mdi-telegram d-xl-none"></span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-corporate-bottom-panel">
+          <div class="container">
+            <div class="row justfy-content-xl-space-between row-10 align-items-md-center2">
+              <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                <div>
+                  <ul class="list-inline list-inline-sm footer-social-list-2">
+                    <li><a class="link-highlight" href="#"><span class="icon mdi mdi-facebook"></span></a></li>
+                    <li><a class="link-highlight" href="#"><span class="icon mdi mdi-twitter"></span></a></li>
+                    <li><a class="link-highlight" href="#"><span class="icon mdi mdi-instagram"></span></a></li>
+                    <li><a class="link-highlight" href="#"><span class="icon mdi mdi-google-plus"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 order-sm-first">
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Dion Store</span><span>.&nbsp;</span><span>Todos os direitos reservados.</span></p>
+              </div>
+              <div class="col-sm-6 col-md-4 text-md-right">
+                <p class="rights"><a href="#">Política de Privacidade</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+      // Dados do usuário (simulado)
+      const userData = {
+        isLoggedIn: true,
+        name: "João Silva",
+        email: "joao.silva@email.com",
+        location: "Sarutaia, SP"
+      };
+
+      // Configuração inicial da página
+      document.addEventListener('DOMContentLoaded', function() {
+        initUserProfile();
+        initCheckoutForm();
+        initPaymentCalculation();
+      });
+
+      // Inicializar perfil do usuário
+      function initUserProfile() {
+        if (userData.isLoggedIn) {
+          document.getElementById('userInitials').textContent = userData.name.split(' ').map(n => n[0]).join('');
+          document.getElementById('userName').textContent = userData.name;
+          document.getElementById('userEmail').textContent = userData.email;
+          document.getElementById('userLocation').textContent = userData.location;
+          
+          // Preencher dados do formulário automaticamente
+          document.getElementById('nome').value = userData.name;
+          document.getElementById('email').value = userData.email;
+        } else {
+          document.body.classList.add('not-logged');
+        }
+      }
+
+      // Toggle do dropdown do usuário
+      document.getElementById('userProfileIcon').addEventListener('click', function(e) {
+        e.stopPropagation();
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('active');
+      });
+
+      // Fechar dropdown ao clicar fora
+      document.addEventListener('click', function() {
+        document.getElementById('userDropdown').classList.remove('active');
+      });
+
+      // Logout
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        if (confirm('Deseja realmente sair?')) {
+          window.location.href = 'login.html';
+        }
+      });
+
+      // Inicializar formulário de checkout
+      function initCheckoutForm() {
+        // Máscara para CPF
+        document.getElementById('cpf').addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+          e.target.value = value;
+        });
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+          e.target.value = value;
+        });
+
+        // Máscara para CEP
+        document.getElementById('cep').addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
+          e.target.value = value;
+          
+          if (value.length === 9) {
+            searchCEP(value);
+          }
+        });
+
+        // Seleção de opções de frete
+        document.querySelectorAll('.shipping-option').forEach(option => {
+          option.addEventListener('click', function() {
+            document.querySelectorAll('.shipping-option').forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            updateShippingCost();
+          });
+        });
+
+        // Seleção de forma de pagamento
+        document.querySelectorAll('.payment-header').forEach(header => {
+          header.addEventListener('click', function() {
+            document.querySelectorAll('.payment-header').forEach(h => h.classList.remove('selected'));
+            this.classList.add('selected');
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            updatePaymentDiscount();
+          });
+        });
+      }
+
+      // Buscar CEP
+      function searchCEP(cep) {
+        const cleanCEP = cep.replace(/\D/g, '');
+        if (cleanCEP.length === 8) {
+          fetch(`https://viacep.com.br/ws/${cleanCEP}/json/`)
+            .then(response => response.json())
+            .then(data => {
+              if (!data.erro) {
+                document.getElementById('endereco').value = data.logradouro;
+                document.getElementById('bairro').value = data.bairro;
+                document.getElementById('cidade').value = data.localidade;
+                document.getElementById('estado').value = data.uf;
+              }
+            })
+            .catch(error => console.log('Erro ao buscar CEP:', error));
+        }
+      }
+
+      // Atualizar custo do frete
+      function updateShippingCost() {
+        const selectedShipping = document.querySelector('input[name="shipping"]:checked');
+        const shippingPrice = selectedShipping.closest('.shipping-option').dataset.price;
+        document.getElementById('shippingCost').textContent = `R$ ${parseFloat(shippingPrice).toFixed(2).replace('.', ',')}`;
+        calculateTotal();
+      }
+
+      // Atualizar desconto do pagamento
+      function updatePaymentDiscount() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked');
+        const discountRow = document.getElementById('discountRow');
+        
+        if (selectedPayment.value === 'pix') {
+          discountRow.style.display = 'flex';
+          calculateTotal();
+        } else {
+          discountRow.style.display = 'none';
+          calculateTotal();
+        }
+      }
+
+      // Calcular total do pedido
+      function calculateTotal() {
+        const subtotal = 219.80;
+        const selectedShipping = document.querySelector('input[name="shipping"]:checked');
+        const shippingCost = parseFloat(selectedShipping.closest('.shipping-option').dataset.price);
+        const selectedPayment = document.querySelector('input[name="payment"]:checked');
+        
+        let total = subtotal + shippingCost;
+        let discount = 0;
+        
+        if (selectedPayment.value === 'pix') {
+          discount = subtotal * 0.05;
+          total -= discount;
+          document.getElementById('discount').textContent = `-R$ ${discount.toFixed(2).replace('.', ',')}`;
+        }
+        
+        document.getElementById('totalPrice').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+      }
+
+      // Inicializar cálculos de pagamento
+      function initPaymentCalculation() {
+        updateShippingCost();
+        updatePaymentDiscount();
+      }
+
+      // Aplicar cupom de desconto
+      function applyCoupon() {
+        const couponCode = document.getElementById('couponCode').value;
+        
+        if (couponCode.toUpperCase() === 'DESCONTO10') {
+          alert('Cupom aplicado com sucesso! Desconto de 10%');
+          // Implementar lógica do cupom aqui
+        } else if (couponCode) {
+          alert('Cupom inválido!');
+        } else {
+          alert('Digite um código de cupom');
+        }
+      }
+
+      // Finalizar pedido via WhatsApp
+      function finishOrder() {
+        // Validar formulário
+        const requiredFields = document.querySelectorAll('input[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            field.style.borderColor = '#dc3545';
+            isValid = false;
+          } else {
+            field.style.borderColor = '#ddd';
+          }
+        });
+        
+        if (!isValid) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+        
+        // Coletar dados do pedido
+        const orderData = {
+          customer: {
+            name: document.getElementById('nome').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('telefone').value,
+            cpf: document.getElementById('cpf').value
+          },
+          address: {
+            cep: document.getElementById('cep').value,
+            street: document.getElementById('endereco').value,
+            number: document.getElementById('numero').value,
+            complement: document.getElementById('complemento').value,
+            neighborhood: document.getElementById('bairro').value,
+            city: document.getElementById('cidade').value,
+            state: document.getElementById('estado').value
+          },
+          shipping: document.querySelector('input[name="shipping"]:checked').value,
+          payment: document.querySelector('input[name="payment"]:checked').value,
+          total: document.getElementById('totalPrice').textContent
+        };
+        
+        // Criar mensagem para WhatsApp
+        const message = createWhatsAppMessage(orderData);
+        const whatsappURL = `https://wa.me/5514998364178?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappURL, '_blank');
+      }
+
+      // Criar mensagem para WhatsApp
+      function createWhatsAppMessage(data) {
+        return `🛍️ *NOVO PEDIDO - DION STORE*
+
+👤 *DADOS DO CLIENTE:*
+Nome: ${data.customer.name}
+E-mail: ${data.customer.email}
+Telefone: ${data.customer.phone}
+CPF: ${data.customer.cpf}
+
+📍 *ENDEREÇO DE ENTREGA:*
+${data.address.street}, ${data.address.number}
+${data.address.complement ? `${data.address.complement}` : ''}
+${data.address.neighborhood} - ${data.address.city}/${data.address.state}
+CEP: ${data.address.cep}
+
+🚚 *ENTREGA:* ${getShippingName(data.shipping)}
+💳 *PAGAMENTO:* ${getPaymentName(data.payment)}
+
+💰 *TOTAL:* ${data.total}
+
+📦 *PRODUTOS:*
+• Camisa Social Azul Royal (M) - R$ 89,90
+• Calça Jeans Slim Fit (42) - R$ 129,90
+
+Aguardando confirmação do pedido!`;
+      }
+
+      // Obter nome da forma de entrega
+      function getShippingName(shipping) {
+        const names = {
+          'padrao': 'Entrega Padrão (3-5 dias)',
+          'expressa': 'Entrega Expressa (1-2 dias)',
+          'retirada': 'Retirada na Loja'
+        };
+        return names[shipping] || shipping;
+      }
+
+      // Obter nome da forma de pagamento
+      function getPaymentName(payment) {
+        const names = {
+          'pix': 'PIX (5% desconto)',
+          'cartao': 'Cartão de Crédito',
+          'boleto': 'Boleto Bancário'
+        };
+        return names[payment] || payment;
+      }
+    </script>
+  </body>
+</html>

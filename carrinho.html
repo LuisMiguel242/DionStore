@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="pt-BR">
+  <head>
+    <title>Carrinho - Loja Online</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/dion definitivo branco.png" type="image/dion definitivo branco.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800%7CPoppins:300,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css" id="main-styles-link">
+    <link rel="stylesheet" href="css/carrinho.css" id="main-styles-link">
+
+  </head>
+  <body>
+    <div class="user-profile-icon" id="userProfileIcon">
+    <div class="user-avatar">
+      <span id="userInitials">U</span>
+    </div>
+
+    <div class="user-dropdown" id="userDropdown">
+      <div class="user-info">
+        <div class="user-name" id="userName">Nome do Usuário</div>
+        <div class="user-email" id="userEmail">email@exemplo.com</div>
+        <div class="user-location">
+          <span class="icon novi-icon mdi mdi-map-marker"></span>
+          <span id="userLocation">Sarutaia, SP</span>
+        </div>
+      </div>
+
+      <ul class="menu-options">
+        <li>
+          <a href="index.html">
+            <span class="icon novi-icon mdi mdi-home"></span>
+            Menu Principal
+          </a>
+        </li>
+        <li>
+          <a href="produtos.html">
+            <span class="icon novi-icon mdi mdi-shopping"></span>
+            Produtos
+          </a>
+        </li>
+        <li>
+          <a href="meus-dados.html" id="myDataLink">
+            <span class="icon novi-icon mdi mdi-account"></span>
+            Meus Dados
+          </a>
+        </li>
+        <li>
+          <a href="pedidos.html">
+            <span class="icon novi-icon mdi mdi-package-variant"></span>
+            Meus Pedidos
+          </a>
+        </li>
+        <li>
+          <a href="favoritos.html">
+            <span class="icon novi-icon mdi mdi-heart"></span>
+            Favoritos
+          </a>
+        </li>
+      </ul>
+
+      <button class="logout-btn" id="logoutBtn">Sair</button>
+    </div>
+  </div>
+    <div class="preloader">
+      <div class="preloader-logo"><img src="images/dion definitivo branco.png" alt="" width="151" height="44" srcset="images/dion definitivo branco.png 2x"/>
+      </div>
+      <div class="preloader-body">
+        <div id="loadingProgressG">
+          <div class="loadingProgressG" id="loadingProgressG_1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <header class="section novi-background page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-lg-stick-up="true" data-lg-stick-up-offset="118px" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xl-stick-up="true" data-xl-stick-up-offset="118px" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-xxl-stick-up-offset="118px" data-xxl-stick-up="true">
+            <div class="rd-navbar-aside-outer">
+              <div class="rd-navbar-aside">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
+                  <!-- RD Navbar Brand--><a class="rd-navbar-brand" href="index.html"><img src="images/dion definitivo branco.png" alt="" width="151" height="44" srcset="images/dion definitivo branco.png 2x"/></a>
+                </div>
+                <div class="rd-navbar-collapse">
+                  <button class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle="#rd-navbar-collapse-content-1"><span></span></button>
+                  <div class="rd-navbar-collapse-content" id="rd-navbar-collapse-content-1">
+                    <article class="unit align-items-center">
+                      <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-phone"></span></div>
+                      <div class="unit-body">
+                        <ul class="list-0">
+                          <li><a class="link-default" href="tel:#">(14) 998364178)</a></li>                       
+                        </ul>
+                      </div>
+                    </article>
+                    <article class="unit align-items-center">
+                      <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-map-marker"></span></div>
+                      <div class="unit-body"><a class="link-default" href="tel:#">Rua Miguel Galleigo Pedroelo <br> Sarutaia, SP 18840-302</a></div>
+                    </article><a class="button button-gray-bordered button-winona" href="#">Ligue para nós</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <div class="rd-navbar-nav-wrap" id="rd-navbar-nav-wrap-1">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Menu</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Sobre nós</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="produtos.html">Produtos</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contato</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- Breadcrumbs -->
+      <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark">
+          <div class="container">
+            <h2 class="breadcrumbs-custom-title">Carrinho de Compras</h2>
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="produtos.html">Produtos</a></li>
+              <li class="active">Carrinho</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Cart Section -->
+      <section class="section novi-background section-sm cart-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="cart-table">
+                <table class="table table-responsive-md">
+                  <thead>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Preço</th>
+                      <th>Quantidade</th>
+                      <th>Subtotal</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Item do Carrinho 1 -->
+                    <tr>
+                      <td>
+                        <div class="cart-product">
+                          <div class="cart-product-img">
+                            <img src="/api/placeholder/400/300" alt="Camisa Social Azul">
+                          </div>
+                          <div>
+                            <h5 class="cart-product-title">Camisa Social Azul Royal</h5>
+                            <div class="cart-product-variant">Tamanho: M | Cor: Azul</div>
+                            <div class="cart-product-sku">SKU: CS-AZ-001</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cart-price">R$ 159,90</div>
+                      </td>
+                      <td>
+                        <div class="quantity-input">
+                          <div class="quantity-btn">-</div>
+                          <input type="text" value="1" min="1">
+                          <div class="quantity-btn">+</div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cart-price">R$ 159,90</div>
+                      </td>
+                      <td>
+                        <div class="btn-remove">
+                          <span class="mdi mdi-close"></span>
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    <!-- Item do Carrinho 2 -->
+                    <tr>
+                      <td>
+                        <div class="cart-product">
+                          <div class="cart-product-img">
+                            <img src="/api/placeholder/400/300" alt="Camisa Social Preta">
+                          </div>
+                          <div>
+                            <h5 class="cart-product-title">Camisa Social Preta Elegante</h5>
+                            <div class="cart-product-variant">Tamanho: G | Cor: Preto</div>
+                            <div class="cart-product-sku">SKU: CS-PR-002</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cart-price">R$ 169,90</div>
+                      </td>
+                      <td>
+                        <div class="quantity-input">
+                          <div class="quantity-btn">-</div>
+                          <input type="text" value="1" min="1">
+                          <div class="quantity-btn">+</div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cart-price">R$ 169,90</div>
+                      </td>
+                      <td>
+                        <div class="btn-remove">
+                          <span class="mdi mdi-close"></span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="cart-actions mt-4">
+                <a href="produtos.html" class="button button-secondary button-winona">Continuar Comprando</a>
+                <button class="button button-primary-outline button-winona">Atualizar Carrinho</button>
+              </div>
+            </div>
+            
+            <div class="col-lg-4">
+              <div class="cart-summary">
+                <h4 class="cart-summary-title">Resumo do Pedido</h4>
+                
+                <div class="cart-coupon">
+                  <input type="text" placeholder="Cupom de desconto">
+                  <button class="button button-primary button-winona">Aplicar</button>
+                </div>
+                
+                <div class="cart-summary-item">
+                  <span>Subtotal</span>
+                  <span>R$ 329,80</span>
+                </div>
+                
+                <div class="cart-summary-item">
+                  <span>Desconto</span>
+                  <span>R$ 0,00</span>
+                </div>
+                
+                <div class="shipping-options">
+                  <h6 class="mb-3">Frete</h6>
+                  
+                  <div class="shipping-option">
+                    <input type="radio" name="shipping" id="shipping-1" checked>
+                    <label for="shipping-1">
+                      <span>Entrega Padrão (3-5 dias úteis)</span>
+                      <span class="shipping-price">R$ 19,90</span>
+                    </label>
+                  </div>
+                  
+                  <div class="shipping-option">
+                    <input type="radio" name="shipping" id="shipping-2">
+                    <label for="shipping-2">
+                      <span>Entrega Expressa (1-2 dias úteis)</span>
+                      <span class="shipping-price">R$ 34,90</span>
+                    </label>
+                  </div>
+                  
+                  <div class="shipping-option">
+                    <input type="radio" name="shipping" id="shipping-3">
+                    <label for="shipping-3">
+                      <span>Retirada na Loja (Grátis)</span>
+                      <span class="shipping-price">R$ 0,00</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="cart-total">
+                  <span>Total</span>
+                  <span>R$ 349,70</span>
+                </div>
+                
+                <a href="pagamento.html" class="button button-primary button-winona w-100 mt-4">Finalizar Compra</a>
+                
+                <div class="mt-4 text-center">
+                  <img src="/api/placeholder/250/30" alt="Formas de Pagamento">
+                  <div class="mt-2 text-muted small">Pagamento 100% seguro</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Produtos Relacionados -->
+      <section class="section novi-background section-sm bg-gray-100">
+        <div class="container">
+          <h3 class="text-center mb-4">Você também pode gostar</h3>
+          
+          <div class="row row-30">
+            <!-- Produto Recomendado 1 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <img src="/api/placeholder/400/300" alt="Camisa Social Listrada">
+                  <div class="product-overlay">
+                    <a href="pagamento.html" class="btn btn-primary">Comprar Agora</a>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h5 class="product-title">Camisa Social Listrada Clássica</h5>
+                  <div class="product-price">
+                    <span>R$ 189,90</span>
+                  </div>
+                  <div class="mt-3">
+                    <a href="#" class="button button-primary button-winona add-to-cart">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Produto Recomendado 2 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <img src="/api/placeholder/400/300" alt="Camisa Social Vinho">
+                  <div class="product-overlay">
+                    <a href="pagamento.html" class="btn btn-primary">Comprar Agora</a>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h5 class="product-title">Camisa Social Vinho Premium</h5>
+                  <div class="product-price">
+                    <span>R$ 199,90</span>
+                  </div>
+                  <div class="mt-3">
+                    <a href="#" class="button button-primary button-winona add-to-cart">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Produto Recomendado 3 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <img src="/api/placeholder/400/300" alt="Skate X-PRO PINK">
+                  <div class="product-overlay">
+                    <a href="pagamento.html" class="btn btn-primary">Comprar Agora</a>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h5 class="product-title">Skate X-PRO PINK 'T'</h5>
+                  <div class="product-price">
+                    <span>R$ 289,90</span>
+                  </div>
+                  <div class="mt-3">
+                    <a href="#" class="button button-primary button-winona add-to-cart">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Produto Recomendado 4 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <img src="/api/placeholder/400/300" alt="Truck Liga Skate">
+                  <div class="product-overlay">
+                    <a href="pagamento.html" class="btn btn-primary">Comprar Agora</a>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h5 class="product-title">Truck Liga Skate Logo 129mm</h5>
+                  <div class="product-price">
+                    <span>R$ 159,90</span>
+                  </div>
+                  <div class="mt-3">
+                    <a href="#" class="button button-primary button-winona add-to-cart">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Carrinho Vazio (escondido por padrão) -->
+      <section class="section novi-background section-sm empty-cart" style="display: none;">
+        <div class="container">
+          <div class="empty-cart-icon">
+            <span class="mdi mdi-cart-outline"></span>
+          </div>
+          <h3 class="mb-3">Seu carrinho está vazio</h3>
+          <p class="mb-4">Parece que você ainda não adicionou nenhum produto ao seu carrinho.</p>
+          <a href="produtos.html" class="button button-primary button-winona">Continuar Comprando</a>
+        </div>
+      </section>
+      
+      <!-- Footer -->
+      <footer class="section footer-classic context-dark bg-image" style="background: #2c2c2c;">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+              <div class="pr-xl-4">
+                <a class="brand" href="index.html"><img class="brand-logo-light" src="images/dion definitivo branco.png" alt="" width="140" height="37" srcset="images/dion definitivo branco.png 2x"></a>
+                <p>Somos uma loja especializada em skate e vestuário de qualidade. Nosso objetivo é oferecer os melhores produtos com preços justos e um atendimento excepcional.</p>
+                <p class="rights"><span>©  </span><span class="copyright-year">2025</span><span> </span><span>Skate Shop</span><span>. </span><span>Todos os direitos reservados.</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Contatos</h5>
+              <dl class="contact-list">
+                <dt>Endereço:</dt>
+                <dd>Rua Miguel Galleigo Pedroelo, Sarutaia, SP 18840-302</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>Email:</dt>
+                <dd><a href="mailto:#">contato@skateshop.com.br</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>Telefone:</dt>
+                <dd><a href="tel:#">(14) 99836-4178</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <h5>Links</h5>
+              <ul class="nav-list">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about-us.html">Sobre nós</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contacts.html">Contato</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <div class="snackbars" id="form-output-global"></div>
+    
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      
+            // Script para gerenciar o perfil de usuário
+            document.addEventListener('DOMContentLoaded', function () {
+              // Elemento do ícone de perfil do usuário
+              const userProfileIcon = document.getElementById('userProfileIcon');
+              // Elemento do dropdown de usuário
+              const userDropdown = document.getElementById('userDropdown');
+              // Elemento para as iniciais do usuário
+              const userInitials = document.getElementById('userInitials');
+              // Elementos para informações do usuário
+              const userName = document.getElementById('userName');
+              const userEmail = document.getElementById('userEmail');
+              const userLocation = document.getElementById('userLocation');
+              // Botão de logout
+              const logoutBtn = document.getElementById('logoutBtn');
+              // Link para meus dados
+              const myDataLink = document.getElementById('myDataLink');
+
+              // Verificar se o usuário está logado
+              function checkUserLogin() {
+                // Obter dados do usuário do localStorage
+                const userData = JSON.parse(localStorage.getItem('userData'));
+
+                if (userData) {
+                  // Usuário está logado
+                  showUserProfile(userData);
+                } else {
+                  // Usuário não está logado
+                  hideUserProfile();
+                }
+              }
+
+              // Exibir o perfil do usuário
+              function showUserProfile(userData) {
+                // Exibir o ícone de perfil
+                userProfileIcon.style.display = 'block';
+
+                // Definir as iniciais do usuário
+                if (userData.nome) {
+                  const nameParts = userData.nome.split(' ');
+                  if (nameParts.length > 1) {
+                    userInitials.textContent = nameParts[0][0] + nameParts[nameParts.length - 1][0];
+                  } else {
+                    userInitials.textContent = userData.nome[0];
+                  }
+                } else {
+                  userInitials.textContent = 'U';
+                }
+
+                // Preencher informações do usuário no dropdown
+                userName.textContent = userData.nome || 'Usuário';
+                userEmail.textContent = userData.email || 'email@exemplo.com';
+                userLocation.textContent = userData.cidade ? `${userData.cidade}, ${userData.estado}` : 'Sarutaia, SP';
+              }
+
+              // Ocultar o perfil do usuário
+              function hideUserProfile() {
+                userProfileIcon.style.display = '';
+              }
+
+              // Alternar a visibilidade do dropdown de usuário
+              function toggleUserDropdown() {
+                userDropdown.classList.toggle('active');
+              }
+
+              // Função para fazer logout
+              function logout() {
+                // Remover dados do usuário do localStorage
+                localStorage.removeItem('userData');
+
+                // Redirecionar para a página inicial ou de login
+                window.location.href = 'login.php';
+              }
+
+              // Adicionar evento de clique ao ícone de perfil
+              userProfileIcon.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleUserDropdown();
+              });
+
+              // Fechar dropdown quando clicar fora dele
+              document.addEventListener('click', function (event) {
+                if (userDropdown.classList.contains('active') &&
+                  !userProfileIcon.contains(event.target) &&
+                  !userDropdown.contains(event.target)) {
+                  userDropdown.classList.remove('active');
+                }
+              });
+
+              // Adicionar evento de clique ao botão de logout
+              if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+              }
+
+             
+         
+            });
+        
+    // Script para funcionalidade básica do carrinho
+document.addEventListener('DOMContentLoaded', function() {
+    // Botões de quantidade
+    const minusBtns = document.querySelectorAll('.quantity-btn.minus');
+    const plusBtns = document.querySelectorAll('.quantity-btn.plus');
+    const removeBtns = document.querySelectorAll('.btn-remove');
+    const quantityInputs = document.querySelectorAll('.quantity-input input');
+
+    // Funcionalidade para diminuir a quantidade
+    minusBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.closest('.quantity-input').querySelector('input');
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+                updateSubtotal(input);
+            }
+        });
+    });
+
+    // Funcionalidade para aumentar a quantidade
+    plusBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.closest('.quantity-input').querySelector('input');
+            let value = parseInt(input.value);
+            input.value = value + 1;
+            updateSubtotal(input);
+        });
+    });
+
+    // Funcionalidade para remover item
+    removeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const row = this.closest('tr');
+            row.style.opacity = '0';
+            setTimeout(() => {
+                row.remove();
+                updateTotal();
+                checkEmptyCart();
+            }, 300);
+        });
+    });
+
+    // Atualizar ao mudar o valor diretamente no input
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            // Garantir que o valor é pelo menos 1
+            if (this.value < 1 || isNaN(this.value)) {
+                this.value = 1;
+            }
+            updateSubtotal(this);
+        });
+    });
+
+    // Função para atualizar o subtotal de um item
+    function updateSubtotal(element) {
+        const row = element.closest('tr');
+        const price = parseFloat(row.querySelector('.cart-price').innerText.replace('R$ ', '').replace(',', '.'));
+        const quantity = parseInt(row.querySelector('.quantity-input input').value);
+        const subtotal = price * quantity;
+        
+        row.querySelectorAll('.cart-price')[1].innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        updateTotal();
+    }
+
+    // Função para atualizar o total do carrinho
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('tbody tr').forEach(row => {
+            const rowSubtotal = parseFloat(row.querySelectorAll('.cart-price')[1].innerText
+                .replace('R$ ', '')
+                .replace(',', '.'));
+            total += rowSubtotal;
+        });
+        
+        // Atualizar o valor total na página
+        const totalElement = document.querySelector('.cart-total-price');
+        if (totalElement) {
+            totalElement.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+    }
+
+    // Função para verificar se o carrinho está vazio
+    function checkEmptyCart() {
+        const cartItems = document.querySelectorAll('tbody tr');
+        const emptyCartMessage = document.querySelector('.empty-cart-message');
+        const cartTable = document.querySelector('.cart-table');
+        const cartFooter = document.querySelector('.cart-footer');
+        
+        if (cartItems.length === 0) {
+            if (emptyCartMessage) {
+                emptyCartMessage.style.display = 'block';
+            }
+            if (cartTable) {
+                cartTable.style.display = 'none';
+            }
+            if (cartFooter) {
+                cartFooter.style.display = 'none';
+            }
+        }
+    }
+
+    // Inicializar os totais na carga da página
+    updateTotal();
+    checkEmptyCart();
+});

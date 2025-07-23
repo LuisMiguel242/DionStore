@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="pt-br">
+
+<head>
+  <title>Meus Dados - Dion</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width height=device-height initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <link rel="icon" href="images/dion definitivo branco.png" type="images/dion definitivo branco.png">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800%7CPoppins:300,400,700">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css" id="main-styles-link">
+  <style>
+  .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    /* Novo painel superior */
+    .top-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: linear-gradient(135deg, #212121 0%, #424242 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1050;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Menu hambúrguer */
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu span {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger-menu:hover span {
+      background-color: #ff6b00;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* Logo centralizada */
+    .top-panel-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .top-panel-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+  .user-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: #ff6b00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .user-avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      background-color: #e35f00;
+    }
+
+#userInitials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  transform: translateY(1px); /* ou ajuste fino como 0px ou 2px */
+}
+
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    /* Estilos para a página Meus Dados */
+    .user-profile-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-profile-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-avatar-large {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ff6b00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0 auto 15px;
+    }
+
+    .user-profile-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .user-profile-subtitle {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .user-data-section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #ff6b00;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title .icon {
+      margin-right: 10px;
+      font-size: 24px;
+    }
+
+    .user-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .info-item {
+      margin-bottom: 15px;
+    }
+
+    .info-label {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .action-button {
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+    }
+
+    .edit-button {
+      background-color: #ff6b00;
+      color: white;
+    }
+
+    .edit-button:hover {
+      background-color: #e35f00;
+    }
+
+    .back-button {
+      background-color: #f5f5f5;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .back-button:hover {
+      background-color: #e8e8e8;
+    }
+
+    .save-button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .save-button:hover {
+      background-color: #218838;
+    }
+
+    .cancel-button {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .cancel-button:hover {
+      background-color: #5a6268;
+    }
+
+    .access-denied {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 500px;
+      margin: 100px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .access-denied-icon {
+      font-size: 64px;
+      color: #ffc107;
+      margin-bottom: 20px;
+    }
+
+    .access-denied-title {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .access-denied-message {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .login-button {
+      background-color: #ff6b00;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .login-button:hover {
+      background-color: #e35f00;
+      text-decoration: none;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .user-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .user-actions {
+        flex-direction: column;
+      }
+    }
+
+    .edit-form {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #ff6b00;
+      box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+    }
+
+    .form-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Estilo para o ícone do usuário no canto superior esquerdo */
+    .user-profile-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ff6b00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .user-avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .user-dropdown {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 280px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      padding: 15px;
+      display: none;
+      z-index: 1001;
+    }
+
+    .user-dropdown.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .user-info {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-name {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .user-email {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .user-location {
+      color: #888;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .user-location .icon {
+      margin-right: 5px;
+    }
+
+    .menu-options {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+
+    .menu-options li {
+      margin-bottom: 8px;
+    }
+
+    .menu-options a {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      color: #333;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .menu-options a:hover {
+      background-color: #f5f5f5;
+      text-decoration: none;
+    }
+
+    .menu-options .icon {
+      margin-right: 10px;
+      width: 16px;
+    }
+
+    .logout-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #c82333;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Notificações */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      z-index: 2000;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.success {
+      background-color: #28a745;
+    }
+
+    .notification.error {
+      background-color: #dc3545;
+    }
+
+    .notification.info {
+      background-color: #17a2b8;
+    }
+
+    .notification-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* Menu lateral */
+    .side-menu {
+      position: fixed;
+      top: 70px;
+      left: -300px;
+      width: 300px;
+      height: calc(100vh - 70px);
+      background: linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 100%);
+      transition: left 0.3s ease;
+      z-index: 1040;
+      box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .side-menu-content {
+      padding: 30px 20px;
+    }
+
+    .side-menu h3 {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-align: center;
+      border-bottom: 2px solid #ff6b00;
+      padding-bottom: 15px;
+    }
+
+    .side-menu-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu-nav li {
+      margin-bottom: 5px;
+    }
+
+    .side-menu-nav a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      border-left: 3px solid transparent;
+    }
+
+    .side-menu-nav a:hover,
+    .side-menu-nav a.active {
+      background-color: rgba(255, 107, 0, 0.1);
+      border-left-color: #ff6b00;
+      color: #ff6b00;
+      transform: translateX(5px);
+    }
+
+    /* Overlay para fechar menu */
+    .menu-overlay {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1030;
+    }
+
+    .menu-overlay.active {
+      display: block;
+    }
+
+    /* Ajustar conteúdo principal */
+    .page {
+      margin-top: 70px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .top-panel {
+        padding: 0 15px;
+      }
+
+      .top-panel-logo img {
+        height: 35px;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .side-menu {
+        width: 280px;
+        left: -280px;
+      }
+
+      .user-dropdown {
+        width: 260px;
+        right: -10px;
+      }
+    }
+
+    .post-modern {
+      max-width: 571px;
+      margin: 0 auto;
+      font-family: 'Arial', sans-serif;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .post-modern:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-modern-media {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .post-modern-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .post-modern-media:hover img {
+      transform: scale(1.05);
+    }
+
+    .post-modern-title {
+      padding: 15px 20px 5px;
+      margin: 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .post-modern-meta {
+      display: flex;
+      padding: 0 20px;
+      list-style: none;
+      gap: 20px;
+      margin: 10px 0;
+    }
+
+    .button-winona {
+      background: #ff5722;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .button-winona:hover {
+      background: #e64a19;
+    }
+
+    p {
+      padding: 0 20px 20px;
+      margin: 0;
+      color: #666;
+    }
+
+    .wow {
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slideInLeft {
+      animation: slideInLeft 0.8s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Novo painel superior -->
+  <div class="top-panel">
+    <!-- Menu hambúrguer à esquerda -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Logo centralizada -->
+    <div class="top-panel-logo">
+      <a href="index.html">
+        <img src="images/dion definitivo branco.png" alt="Dion Logo">
+      </a>
+    </div>
+
+    <!-- Avatar do usuário à direita -->
+    <div class="user-avatar" id="userProfileIcon">
+      <span id="userInitials">U</span>
+    </div>
+
+    <div class="user-dropdown" id="userDropdown">
+      <div class="user-info">
+        <div class="user-name" id="userName">Nome do Usuário</div>
+        <div class="user-email" id="userEmail">email@exemplo.com</div>
+        <div class="user-location">
+          <span class="icon novi-icon mdi mdi-map-marker"></span>
+          <span id="userLocation">Sarutaia, SP</span>
+        </div>
+      </div>
+
+      <ul class="menu-options">
+        <li>
+          <a href="index.html">
+            <span class="icon novi-icon mdi mdi-home"></span>
+            Menu Principal
+          </a>
+        </li>
+        <li>
+          <a href="produtos.html">
+            <span class="icon novi-icon mdi mdi-shopping"></span>
+            Produtos
+          </a>
+        </li>
+        <li>
+          <a href="meus-dados.php" id="myDataLink">
+            <span class="icon novi-icon mdi mdi-account"></span>
+            Meus Dados
+          </a>
+        </li>
+        <li>
+          <a href="pedidos.html">
+            <span class="icon novi-icon mdi mdi-package-variant"></span>
+            Meus Pedidos
+          </a>
+        </li>
+        <li>
+          <a href="favoritos.html">
+            <span class="icon novi-icon mdi mdi-heart"></span>
+            Favoritos
+          </a>
+        </li>
+      </ul>
+
+      <button class="logout-btn" id="logoutBtn">Sair</button>
+    </div>
+  </div>
+
+  <!-- Menu lateral -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-content">
+      <h3>Menu</h3>
+      <ul class="side-menu-nav">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="about-us.html">Sobre Nós</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="contacts.html">Contato</a></li>
+        <li><a href="pedidos.html">Meus Pedidos</a></li>
+        <li><a href="favoritos.html">Favoritos</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="images/dion definitivo branco.png" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-logo"><img src="images/dion definitivo branco.png" alt="" width="151" height="44"
+        srcset="images/dion definitivo branco.png" />
+    </div>
+    <div class="preloader-body">
+      <div id="loadingProgressG">
+        <div class="loadingProgressG" id="loadingProgressG_1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+        data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+        data-lg-device-layout="rd-navbar-static" data-lg-stick-up="true" data-lg-stick-up-offset="118px"
+        data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xl-stick-up="true"
+        data-xl-stick-up-offset="118px" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static"
+        data-xxl-stick-up-offset="118px" data-xxl-stick-up="true">
+        <div class="rd-navbar-main-outer">
+          <div class="rd-navbar-main">
+            <div class="rd-navbar-nav-wrap" id="rd-navbar-nav-wrap-1">
+              <!-- RD Navbar Nav-->
+              <ul class="rd-navbar-nav">
+                <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Menu</a>
+                </li>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Nós</a>
+                </li>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="produtos.h[]">Produtos</a>
+                </li>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contate-nos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    </header>
+    <!-- Conteúdo principal -->
+    <main id="mainContent">
+      <!-- Será preenchido via JavaScript dependendo do status de login -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="section novi-background footer-advanced bg-gray-700">
+      <div class="footer-advanced-main">
+        <div class="container">
+          <div class="row row-50">
+            <div class="col-lg-4">
+              <h5 class="font-weight-bold text-uppercase text-white">Sobre nós</h5>
+              <p class="footer-advanced-text">Dion é uma loja que esta se estruturando agora, mais veio para trazer a
+                arte
+                do Street e da nossa moda, Dion promete ter a sua confiança para poder te trazer satisfação, uma loja
+                que
+                quer evoluir e mostrar para o mundo oque realmente é o stilo de rua em seu corpo.</p>
+            </div>
+            <div class="col-sm-7 col-md-5 col-lg-4">
+              <h5 class="font-weight-bold text-uppercase text-white">siga agente nas redes sociais</h5>
+              <!-- Post Inline-->
+              <article class="post-inline">
+                <p class="post-inline-title"><a href="#">luismiguel_ns, pedrohenriquezzs, Guizhwxy_, patrickgarrote
+                  </a></p>
+                <ul class="post-inline-meta">
+                  <li>Dion</li>
+                  <li><a href="#">2 dias atrás</a></li>
+                </ul>
+              </article>
+            </div>
+            <div class="col-sm-5 col-md-7 col-lg-4">
+              <h5 class="font-weight-bold text-uppercase text-white">Galeria</h5>
+              <div class="row row-x-10" data-lightgallery="group">
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/shapes.png"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/shapes.png" alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/trucks1.png"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/trucks1.png" alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/skate.jpg"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/skate.jpg" alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/dion camisa brasil.png"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/dion camisa brasil.png"
+                      alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/camisa marrom Dion.png"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/camisa marrom Dion.png"
+                      alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/shape de maplle.jpg"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/shape de maplle.jpg"
+                      alt="" />
+                    <div class="thumbnail-minimal-caption"> </div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/skate tenis.png"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/skate tenis.png" alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+                <div class="col-3 col-sm-4 col-md-3"><a class="thumbnail-minimal" href="images/skate3.jpg"
+                    data-lightgallery="item"><img class="thumbnail-minimal-image" src="images/skate3.jpg" alt="" />
+                    <div class="thumbnail-minimal-caption"></div>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-advanced-aside">
+        <div class="container">
+          <div class="footer-advanced-layout">
+            <div>
+              <ul class="list-nav">
+                <li><a href="index.html">menu</a></li>
+                <li><a href="about-us.html">sobre</a></li>
+                <li><a href="produtos.html">produtos</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="contacts.html">contatos</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="foter-social-links list-inline list-inline-md">
+                <li><a class="icon novi-icon icon-sm link-default mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon novi-icon icon-sm link-default mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon novi-icon icon-sm link-default mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon novi-icon icon-sm link-default mdi mdi-google" href="#"></a></li>
+                <li><a class="icon novi-icon icon-sm link-default mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <hr />
+      </div>
+      <div class="footer-advanced-aside">
+        <div class="container">
+          <div class="footer-advanced-layout"><a class="brand" href="index.html"><img
+                src="images/dion definitivo branco.png" alt="" width="115" height="34"
+                srcset="images/dion definitivo branco.png" /></a>
+            <!-- Rights-->
+            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span>. Todos os direitos
+              reservados
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="snackbars" id="form-output-global"></div>
+
+  <script src="js/core.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Elementos do menu hambúrguer
+      const hamburgerMenu = document.getElementById('hamburgerMenu');
+      const sideMenu = document.getElementById('sideMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+    });
+    // Elementos do dropdown do usuário
+    const userProfileIcon = document.getElementById('userProfileIcon');
+    const userDropdown = document.getElementById('userDropdown');
+    const userInitials = document.getElementById('userInitials');
+    const userName = document.getElementById('userName');
+    const userEmail = document.getElementById('userEmail');
+    const userLocation = document.getElementById('userLocation');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const myDataLink = document.getElementById('myDataLink');
+
+    // Função para abrir/fechar menu lateral
+    function toggleSideMenu() {
+      hamburgerMenu.classList.toggle('active');
+      sideMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+
+      // Previne scroll do body quando menu está aberto
+      if (sideMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Função para fechar menu lateral
+    function closeSideMenu() {
+      hamburgerMenu.classList.remove('active');
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Event listeners para menu hambúrguer
+    hamburgerMenu.addEventListener('click', toggleSideMenu);
+    menuOverlay.addEventListener('click', closeSideMenu);
+
+    // Fechar menu ao clicar em um link
+    const sideMenuLinks = sideMenu.querySelectorAll('a');
+    sideMenuLinks.forEach(link => {
+      link.addEventListener('click', closeSideMenu);
+    });
+
+    // Funções do dropdown do usuário
+    function checkUserLogin() {
+      // Simulando dados do usuário - substituir pela lógica real
+      const userData = {
+        nome: 'João Silva',
+        email: 'joao@exemplo.com',
+        cidade: 'Sarutaia',
+        estado: 'SP'
+      };
+
+      if (userData) {
+        showUserProfile(userData);
+      } else {
+        userProfileIcon.style.display = 'none';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      // Função para obter dados do usuário do localStorage (fallback)
+      function getUserDataFromStorage() {
+        try {
+          const userData = localStorage.getItem('userData');
+          return userData ? JSON.parse(userData) : null;
+        } catch (error) {
+          console.error('Erro ao ler dados do usuário do localStorage:', error);
+          return null;
+        }
+      }
+
+      // Função para obter dados do usuário do servidor
+      async function getUserDataFromServer() {
+        try {
+          const response = await fetch('get_user_data.php');
+          const result = await response.json();
+
+          if (result.success) {
+            // Salvar dados no localStorage como backup
+            localStorage.setItem('userData', JSON.stringify(result.user_data));
+            return result.user_data;
+          } else {
+            console.log('Usuário não autenticado no servidor');
+            return null;
+          }
+        } catch (error) {
+          console.error('Erro ao buscar dados do servidor:', error);
+          // Tentar usar dados do localStorage como fallback
+          return getUserDataFromStorage();
+        }
+      }
+
+      // Função para criar as iniciais do usuário
+      function createUserInitials(nome) {
+        if (!nome) return 'U';
+
+        const nameParts = nome.trim().split(' ').filter(part => part.length > 0);
+
+        if (nameParts.length === 0) return 'U';
+        if (nameParts.length === 1) return nameParts[0][0].toUpperCase();
+
+        return (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase();
+      }
+
+      // Função para mostrar notificação
+      function showNotification(message, type = 'info') {
+        // Remover notificação existente se houver
+        const existingNotification = document.querySelector('.notification');
+        if (existingNotification) {
+          existingNotification.remove();
+        }
+
+        // Criar nova notificação
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+      <span class="notification-message">${message}</span>
+      <button class="notification-close">&times;</button>
+    `;
+
+        // Adicionar estilos inline caso não existam no CSS
+        notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 5px;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: slideIn 0.3s ease-out;
+    `;
+
+        // Definir cor baseada no tipo
+        const colors = {
+          'success': '#28a745',
+          'error': '#dc3545',
+          'warning': '#ffc107',
+          'info': '#17a2b8'
+        };
+        notification.style.backgroundColor = colors[type] || colors.info;
+
+        document.body.appendChild(notification);
+
+        // Evento para fechar notificação
+        const closeBtn = notification.querySelector('.notification-close');
+        closeBtn.addEventListener('click', () => {
+          notification.remove();
+        });
+
+        // Auto remover após 5 segundos
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 5000);
+      }
+
+      // Função para verificar se o usuário está logado
+      async function checkUserLogin() {
+        const mainContent = document.getElementById('mainContent');
+
+        // Primeiro, tentar obter dados do servidor
+        let userData = await getUserDataFromServer();
+
+        // Se não conseguir do servidor, tentar localStorage
+        if (!userData) {
+          userData = getUserDataFromStorage();
+        }
+
+        console.log('Dados do usuário:', userData);
+
+        if (userData && userData.nome && userData.email) {
+          // Usuário logado - mostrar os dados
+          showUserData(userData, mainContent);
+          setupUserDropdown(userData);
+        } else {
+          // Usuário não logado - mostrar mensagem de acesso negado
+          showLoginRequired(mainContent);
+        }
+      }
+
+      // Função para mostrar tela de login obrigatório
+      function showLoginRequired(container) {
+        container.innerHTML = `
+      <div class="login-required-container">
+        <div class="login-required-content">
+          <div class="login-required-icon">
+            <span class="icon novi-icon mdi mdi-lock"></span>
+          </div>
+          <h2>Acesso Restrito</h2>
+          <p>Você precisa estar logado para acessar esta página.</p>
+          <div class="login-actions">
+            <a href="login.php" class="action-button primary-button">Fazer Login</a>
+            <a href="register.php" class="action-button secondary-button">Criar Conta</a>
+          </div>
+        </div>
+      </div>
+    `;
+      }
+
+      // Configurar o dropdown do usuário
+      function setupUserDropdown(userData) {
+        const userProfileIcon = document.getElementById('userProfileIcon');
+        const userDropdown = document.getElementById('userDropdown');
+        const userInitials = document.getElementById('userInitials');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const userLocation = document.getElementById('userLocation');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Mostrar ícone do usuário
+        if (userProfileIcon) userProfileIcon.style.display = 'block';
+
+        // Definir iniciais do usuário
+        const initials = createUserInitials(userData.nome);
+        if (userInitials) userInitials.textContent = initials;
+
+        // Preencher informações no dropdown
+        if (userName) userName.textContent = userData.nome || 'Usuário';
+        if (userEmail) userEmail.textContent = userData.email || 'email@exemplo.com';
+
+        // Configurar localização
+        let locationText = 'Cidade, Estado';
+        if (userData.cidade && userData.estado) {
+          locationText = `${userData.cidade}, ${userData.estado}`;
+        } else if (userData.cidade) {
+          locationText = userData.cidade;
+        } else if (userData.estado) {
+          locationText = userData.estado;
+        }
+        if (userLocation) userLocation.textContent = locationText;
+
+        // Eventos para o dropdown
+        if (userProfileIcon && userDropdown) {
+          userProfileIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('active');
+          });
+
+          document.addEventListener('click', function (event) {
+            if (userDropdown.classList.contains('active') && !userProfileIcon.contains(event.target)) {
+              userDropdown.classList.remove('active');
+            }
+          });
+        }
+
+        // Evento para logout
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', function () {
+            if (confirm('Tem certeza que deseja sair?')) {
+              // Limpar localStorage
+              localStorage.removeItem('userData');
+
+              // Fazer logout no servidor (se houver sessão)
+              fetch('logout.php', { method: 'POST' })
+                .then(() => {
+                  showNotification('Você foi desconectado com sucesso!', 'info');
+                  setTimeout(() => {
+                    window.location.href = 'login.php';
+                  }, 1500);
+                })
+                .catch(() => {
+                  // Mesmo se der erro, redirecionar
+                  showNotification('Você foi desconectado!', 'info');
+                  setTimeout(() => {
+                    window.location.href = 'login.php';
+                  }, 1500);
+                });
+            }
+          });
+        }
+      }
+
+      // Mostrar dados do usuário
+      function showUserData(userData, container) {
+        // Criar iniciais para o avatar
+        const initials = createUserInitials(userData.nome);
+
+        // Função para formatar data para exibição
+        function formatDate(dateString) {
+          if (!dateString) return 'Não informado';
+
+          try {
+            const date = new Date(dateString + 'T00:00:00');
+            return date.toLocaleDateString('pt-BR');
+          } catch (error) {
+            return dateString;
+          }
+        }
+
+        // Função para formatar CEP
+        function formatCEP(cep) {
+          if (!cep) return 'Não informado';
+          const cepClean = cep.replace(/\D/g, '');
+          if (cepClean.length === 8) {
+            return `${cepClean.slice(0, 5)}-${cepClean.slice(5)}`;
+          }
+          return cep;
+        }
+
+        // Função para formatar telefone
+        function formatPhone(phone) {
+          if (!phone) return 'Não informado';
+          const phoneClean = phone.replace(/\D/g, '');
+          if (phoneClean.length === 11) {
+            return `(${phoneClean.slice(0, 2)}) ${phoneClean.slice(2, 7)}-${phoneClean.slice(7)}`;
+          } else if (phoneClean.length === 10) {
+            return `(${phoneClean.slice(0, 2)}) ${phoneClean.slice(2, 6)}-${phoneClean.slice(6)}`;
+          }
+          return phone;
+        }
+
+        // Gerar HTML da página de dados do usuário
+        const html = `
+      <div class="user-profile-container">
+        <div class="user-profile-header">
+          <div class="user-avatar-large">
+            ${initials}
+          </div>
+          <h1 class="user-profile-title">${userData.nome || 'Nome do Usuário'}</h1>
+          <p class="user-profile-subtitle">${userData.email || 'email@exemplo.com'}</p>
+        </div>
+        
+        <div class="user-data-section">
+          <h2 class="section-title">
+            <span class="icon novi-icon mdi mdi-account"></span>
+            Informações Pessoais
+          </h2>
+          
+          <div class="user-info-grid">
+            <div class="info-item">
+              <div class="info-label">Nome Completo</div>
+              <div class="info-value">${userData.nome || 'Não informado'}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">Email</div>
+              <div class="info-value">${userData.email || 'Não informado'}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">Telefone</div>
+              <div class="info-value">${formatPhone(userData.telefone)}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">Data de Nascimento</div>
+              <div class="info-value">${formatDate(userData.nascimento)}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="user-data-section">
+          <h2 class="section-title">
+            <span class="icon novi-icon mdi mdi-map-marker"></span>
+            Endereço
+          </h2>
+          
+          <div class="user-info-grid">
+            <div class="info-item">
+              <div class="info-label">Endereço</div>
+              <div class="info-value">${userData.endereco || 'Não informado'}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">Cidade</div>
+              <div class="info-value">${userData.cidade || 'Não informado'}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">Estado</div>
+              <div class="info-value">${userData.estado || 'Não informado'}</div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-label">CEP</div>
+              <div class="info-value">${formatCEP(userData.cep)}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="user-actions">
+          <button class="action-button edit-button" id="editProfileBtn">Editar Perfil</button>
+          <a href="index.html" class="action-button back-button">Voltar ao Menu</a>
+        </div>
+        
+        <div class="edit-form" id="editForm" style="display: none;">
+          <h3>Editar Perfil</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Nome Completo *</label>
+            <input type="text" class="form-control" id="editName" value="${userData.nome || ''}" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-control" id="editEmail" value="${userData.email || ''}" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="editTelefone" value="${userData.telefone || ''}">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" id="editNascimento" value="${userData.nascimento || ''}">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="editEndereco" value="${userData.endereco || ''}">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="editCidade" value="${userData.cidade || ''}">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Estado</label>
+            <select class="form-control" id="editEstado">
+              <option value="">Selecione o estado</option>
+              <option value="AC" ${userData.estado === 'AC' ? 'selected' : ''}>Acre</option>
+              <option value="AL" ${userData.estado === 'AL' ? 'selected' : ''}>Alagoas</option>
+              <option value="AP" ${userData.estado === 'AP' ? 'selected' : ''}>Amapá</option>
+              <option value="AM" ${userData.estado === 'AM' ? 'selected' : ''}>Amazonas</option>
+              <option value="BA" ${userData.estado === 'BA' ? 'selected' : ''}>Bahia</option>
+              <option value="CE" ${userData.estado === 'CE' ? 'selected' : ''}>Ceará</option>
+              <option value="DF" ${userData.estado === 'DF' ? 'selected' : ''}>Distrito Federal</option>
+              <option value="ES" ${userData.estado === 'ES' ? 'selected' : ''}>Espírito Santo</option>
+              <option value="GO" ${userData.estado === 'GO' ? 'selected' : ''}>Goiás</option>
+              <option value="MA" ${userData.estado === 'MA' ? 'selected' : ''}>Maranhão</option>
+              <option value="MT" ${userData.estado === 'MT' ? 'selected' : ''}>Mato Grosso</option>
+              <option value="MS" ${userData.estado === 'MS' ? 'selected' : ''}>Mato Grosso do Sul</option>
+              <option value="MG" ${userData.estado === 'MG' ? 'selected' : ''}>Minas Gerais</option>
+              <option value="PA" ${userData.estado === 'PA' ? 'selected' : ''}>Pará</option>
+              <option value="PB" ${userData.estado === 'PB' ? 'selected' : ''}>Paraíba</option>
+              <option value="PR" ${userData.estado === 'PR' ? 'selected' : ''}>Paraná</option>
+              <option value="PE" ${userData.estado === 'PE' ? 'selected' : ''}>Pernambuco</option>
+              <option value="PI" ${userData.estado === 'PI' ? 'selected' : ''}>Piauí</option>
+              <option value="RJ" ${userData.estado === 'RJ' ? 'selected' : ''}>Rio de Janeiro</option>
+              <option value="RN" ${userData.estado === 'RN' ? 'selected' : ''}>Rio Grande do Norte</option>
+              <option value="RS" ${userData.estado === 'RS' ? 'selected' : ''}>Rio Grande do Sul</option>
+              <option value="RO" ${userData.estado === 'RO' ? 'selected' : ''}>Rondônia</option>
+              <option value="RR" ${userData.estado === 'RR' ? 'selected' : ''}>Roraima</option>
+              <option value="SC" ${userData.estado === 'SC' ? 'selected' : ''}>Santa Catarina</option>
+              <option value="SP" ${userData.estado === 'SP' ? 'selected' : ''}>São Paulo</option>
+              <option value="SE" ${userData.estado === 'SE' ? 'selected' : ''}>Sergipe</option>
+              <option value="TO" ${userData.estado === 'TO' ? 'selected' : ''}>Tocantins</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">CEP</label>
+            <input type="text" class="form-control" id="editCep" value="${userData.cep || ''}" maxlength="9" placeholder="00000-000">
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="action-button save-button" id="saveProfileBtn">Salvar Alterações</button>
+            <button type="button" class="action-button cancel-button" id="cancelEditBtn">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        container.innerHTML = html;
+
+        // Configurar eventos após inserir o HTML
+        setupEditProfile(userData);
+      }
+
+      // Configurar funcionalidade de edição de perfil
+      function setupEditProfile(userData) {
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const editForm = document.getElementById('editForm');
+        const saveProfileBtn = document.getElementById('saveProfileBtn');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const cepInput = document.getElementById('editCep');
+
+        // Mostrar/ocultar formulário de edição
+        editProfileBtn.addEventListener('click', function () {
+          editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+          editProfileBtn.textContent = editForm.style.display === 'none' ? 'Editar Perfil' : 'Cancelar Edição';
+        });
+
+        // Cancelar edição
+        cancelEditBtn.addEventListener('click', function () {
+          editForm.style.display = 'none';
+          editProfileBtn.textContent = 'Editar Perfil';
+
+          // Restaurar valores originais
+          document.getElementById('editName').value = userData.nome || '';
+          document.getElementById('editEmail').value = userData.email || '';
+          document.getElementById('editTelefone').value = userData.telefone || '';
+          document.getElementById('editNascimento').value = userData.nascimento || '';
+          document.getElementById('editEndereco').value = userData.endereco || '';
+          document.getElementById('editCidade').value = userData.cidade || '';
+          document.getElementById('editEstado').value = userData.estado || '';
+          document.getElementById('editCep').value = userData.cep || '';
+        });
+
+        // Máscara para CEP
+        if (cepInput) {
+          cepInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 8) {
+              value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+              e.target.value = value;
+            }
+          });
+        }
+
+        // Salvar alterações
+        saveProfileBtn.addEventListener('click', async function () {
+          const formData = {
+            nome: document.getElementById('editName').value.trim(),
+            email: document.getElementById('editEmail').value.trim(),
+            telefone: document.getElementById('editTelefone').value.trim(),
+            nascimento: document.getElementById('editNascimento').value,
+            endereco: document.getElementById('editEndereco').value.trim(),
+            cidade: document.getElementById('editCidade').value.trim(),
+            estado: document.getElementById('editEstado').value,
+            cep: document.getElementById('editCep').value.trim()
+          };
+
+          // Validação básica
+          if (!formData.nome) {
+            showNotification('Nome é obrigatório!', 'error');
+            return;
+          }
+
+          if (!formData.email) {
+            showNotification('Email é obrigatório!', 'error');
+            return;
+          }
+
+          // Validar formato do email
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(formData.email)) {
+            showNotification('Email inválido!', 'error');
+            return;
+          }
+
+          // Mostrar loading
+          saveProfileBtn.textContent = 'Salvando...';
+          saveProfileBtn.disabled = true;
+
+          try {
+            // Tentar salvar no servidor
+            const response = await fetch('backend/update-user.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              // Atualizar dados locais
+              Object.assign(userData, formData);
+              localStorage.setItem('userData', JSON.stringify(userData));
+
+              showNotification('Perfil atualizado com sucesso!', 'success');
+
+              // Recarregar a página para mostrar os novos dados
+              setTimeout(() => {
+                window.location.reload();
+              }, 1500);
+            } else {
+              showNotification(result.message || 'Erro ao atualizar perfil', 'error');
+            }
+          } catch (error) {
+            console.error('Erro ao salvar perfil:', error);
+
+            // Salvar localmente como fallback
+            Object.assign(userData, formData);
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            showNotification('Perfil salvo localmente. Sincronização pendente.', 'warning');
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
+          } finally {
+            saveProfileBtn.textContent = 'Salvar Alterações';
+            saveProfileBtn.disabled = false;
+          }
+        });
+      }
+
+      // Inicializar a aplicação
+      checkUserLogin();
+    });
+  </script>
