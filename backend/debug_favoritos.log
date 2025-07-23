@@ -1,0 +1,364 @@
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "listar",
+    "get": {
+        "action": "listar",
+        "usuario_id": "undefined"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Validação de usuário
+Data: {
+    "usuario_id": "undefined",
+    "existe": false
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "1"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "2"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "3"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "4"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "5"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "6"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "7"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "8"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:49] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:49] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "9"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "listar",
+    "get": {
+        "action": "listar",
+        "usuario_id": "undefined"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Validação de usuário
+Data: {
+    "usuario_id": "undefined",
+    "existe": false
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "1"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "2"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "3"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "4"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "5"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "6"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "7"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "8"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:50] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:50] Requisição recebida
+Data: {
+    "method": "GET",
+    "action": "verificar",
+    "get": {
+        "action": "verificar",
+        "usuario_id": "undefined",
+        "produto_id": "9"
+    },
+    "post": [],
+    "input": ""
+}
+---
+[2025-07-07 15:02:55] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:55] Requisição recebida
+Data: {
+    "method": "POST",
+    "action": "adicionar",
+    "get": {
+        "action": "adicionar"
+    },
+    "post": [],
+    "input": "{\"produto_id\":\"1\",\"produto_nome\":\"Camisa Dion Brasil\",\"produto_preco\":0,\"produto_preco_original\":null,\"produto_imagem\":\"http:\/\/localhost\/site\/images\/dion%20camisa%20brasil.png\",\"produto_categoria\":\"Categoria\",\"produto_descricao\":\"Camisa Dion Brasil\",\"desconto_porcentagem\":null}"
+}
+---
+[2025-07-07 15:02:55] Dados recebidos para adicionar favorito
+Data: {
+    "produto_id": "1",
+    "produto_nome": "Camisa Dion Brasil",
+    "produto_preco": 0,
+    "produto_preco_original": null,
+    "produto_imagem": "http:\/\/localhost\/site\/images\/dion%20camisa%20brasil.png",
+    "produto_categoria": "Categoria",
+    "produto_descricao": "Camisa Dion Brasil",
+    "desconto_porcentagem": null
+}
+---
+[2025-07-07 15:02:55] ERRO: Dados inválidos ou JSON mal formado
+---
+[2025-07-07 15:02:58] Conexão com banco estabelecida com sucesso
+---
+[2025-07-07 15:02:58] Requisição recebida
+Data: {
+    "method": "POST",
+    "action": "adicionar",
+    "get": {
+        "action": "adicionar"
+    },
+    "post": [],
+    "input": "{\"produto_id\":\"1\",\"produto_nome\":\"Camisa Dion Brasil\",\"produto_preco\":0,\"produto_preco_original\":null,\"produto_imagem\":\"http:\/\/localhost\/site\/images\/dion%20camisa%20brasil.png\",\"produto_categoria\":\"Categoria\",\"produto_descricao\":\"Camisa Dion Brasil\",\"desconto_porcentagem\":null}"
+}
+---
+[2025-07-07 15:02:58] Dados recebidos para adicionar favorito
+Data: {
+    "produto_id": "1",
+    "produto_nome": "Camisa Dion Brasil",
+    "produto_preco": 0,
+    "produto_preco_original": null,
+    "produto_imagem": "http:\/\/localhost\/site\/images\/dion%20camisa%20brasil.png",
+    "produto_categoria": "Categoria",
+    "produto_descricao": "Camisa Dion Brasil",
+    "desconto_porcentagem": null
+}
+---
+[2025-07-07 15:02:58] ERRO: Dados inválidos ou JSON mal formado
+---
